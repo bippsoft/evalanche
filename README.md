@@ -7,6 +7,8 @@ two disagree.
 The project is at an early stage. The current program prints its own version
 and the versions of the two evaluators it runs.
 
+The terms used across the project are defined in the [glossary](docs/glossary.md).
+
 ## Running
 
 Both evaluators come from the pinned `nixpkgs` input, so the `nix` on `PATH`
