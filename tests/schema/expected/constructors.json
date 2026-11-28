@@ -1,0 +1,537 @@
+{
+  "fingerprintDepth": 3,
+  "freeformType": null,
+  "options": [
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "attrTag"
+      ],
+      "readOnly": false,
+      "type": "attrTag-3e9c5886d5bf",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "attrsOf"
+      ],
+      "readOnly": false,
+      "type": "attrsOf-68820715b257",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "attrsWith"
+      ],
+      "readOnly": false,
+      "type": "attrsOf-9a12ca9e2ab6",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "coercedTo"
+      ],
+      "readOnly": false,
+      "type": "coercedTo-ea8bef880221",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "either"
+      ],
+      "readOnly": false,
+      "type": "either-19ca128b11d4",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "functionTo"
+      ],
+      "readOnly": false,
+      "type": "functionTo-ce7860f1134f",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "lazyAttrsOf"
+      ],
+      "readOnly": false,
+      "type": "lazyAttrsOf-60e0d07e71a4",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "listOf"
+      ],
+      "readOnly": false,
+      "type": "listOf-c5c41fc6d5dd",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "nestedLists"
+      ],
+      "readOnly": false,
+      "type": "listOf-cf0fe6237188",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "nonEmptyListOf"
+      ],
+      "readOnly": false,
+      "type": "listOf-f2a43ec0ccbc",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "nullOr"
+      ],
+      "readOnly": false,
+      "type": "nullOr-423b241336b4",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "oneOf"
+      ],
+      "readOnly": false,
+      "type": "either-7a2bc557ec9b",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "settings"
+      ],
+      "readOnly": false,
+      "type": "attrsOf-400e9fd0bb86",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "sharedA"
+      ],
+      "readOnly": false,
+      "type": "listOf-c5c41fc6d5dd",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "sharedB"
+      ],
+      "readOnly": false,
+      "type": "listOf-c5c41fc6d5dd",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "uniq"
+      ],
+      "readOnly": false,
+      "type": "unique-8e34c5363b3b",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "unique"
+      ],
+      "readOnly": false,
+      "type": "unique-8e34c5363b3b",
+      "visible": true
+    }
+  ],
+  "schemaVersion": 1,
+  "types": {
+    "attrTag-3e9c5886d5bf": {
+      "deprecationMessage": null,
+      "description": "attribute-tagged union with choices: a, b",
+      "descriptionClass": "noun",
+      "functor": "attrTag",
+      "hasEmptyValue": false,
+      "name": "attrTag",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "a"
+          ],
+          "readOnly": false,
+          "type": "int-7dfa1bd6ceff",
+          "visible": true
+        },
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "b"
+          ],
+          "readOnly": false,
+          "type": "str-abf70477e054",
+          "visible": true
+        }
+      ],
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "attrsOf-400e9fd0bb86": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "composite",
+      "functor": "attrsWith",
+      "hasEmptyValue": true,
+      "name": "attrsOf",
+      "nested": {
+        "elemType": "nullOr-ef16c2d205d9"
+      },
+      "payload": {
+        "lazy": false,
+        "placeholder": "name"
+      },
+      "reachesTypeCycle": true
+    },
+    "attrsOf-68820715b257": {
+      "deprecationMessage": null,
+      "description": "attribute set of signed integer",
+      "descriptionClass": "composite",
+      "functor": "attrsWith",
+      "hasEmptyValue": true,
+      "name": "attrsOf",
+      "nested": {
+        "elemType": "int-7dfa1bd6ceff"
+      },
+      "payload": {
+        "lazy": false,
+        "placeholder": "name"
+      },
+      "reachesTypeCycle": false
+    },
+    "attrsOf-9a12ca9e2ab6": {
+      "deprecationMessage": null,
+      "description": "attribute set of string",
+      "descriptionClass": "composite",
+      "functor": "attrsWith",
+      "hasEmptyValue": true,
+      "name": "attrsOf",
+      "nested": {
+        "elemType": "str-abf70477e054"
+      },
+      "payload": {
+        "lazy": false,
+        "placeholder": "user"
+      },
+      "reachesTypeCycle": false
+    },
+    "bool-e73c13eed337": {
+      "deprecationMessage": null,
+      "description": "boolean",
+      "descriptionClass": "noun",
+      "functor": "bool",
+      "hasEmptyValue": false,
+      "name": "bool",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "coercedTo-ea8bef880221": {
+      "deprecationMessage": null,
+      "description": "string or signed integer convertible to it",
+      "descriptionClass": null,
+      "functor": "coercedTo",
+      "hasEmptyValue": false,
+      "name": "coercedTo",
+      "nested": {
+        "coercedType": "int-7dfa1bd6ceff",
+        "finalType": "str-abf70477e054"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "either-19ca128b11d4": {
+      "deprecationMessage": null,
+      "description": "signed integer or string",
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "int-7dfa1bd6ceff",
+        "right": "str-abf70477e054"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "either-46f2a821eaba": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "either-7b2ad9a1c43b",
+        "right": "attrsOf-400e9fd0bb86"
+      },
+      "payload": {},
+      "reachesTypeCycle": true
+    },
+    "either-768925f4a7bc": {
+      "deprecationMessage": null,
+      "description": "boolean or signed integer",
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "bool-e73c13eed337",
+        "right": "int-7dfa1bd6ceff"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "either-7a2bc557ec9b": {
+      "deprecationMessage": null,
+      "description": "signed integer or string or boolean",
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "either-19ca128b11d4",
+        "right": "bool-e73c13eed337"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "either-7b2ad9a1c43b": {
+      "deprecationMessage": null,
+      "description": "boolean or signed integer or string",
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "either-768925f4a7bc",
+        "right": "str-abf70477e054"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "either-c279ba05dbde": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "either-46f2a821eaba",
+        "right": "listOf-6064cf5731f7"
+      },
+      "payload": {},
+      "reachesTypeCycle": true
+    },
+    "functionTo-ce7860f1134f": {
+      "deprecationMessage": null,
+      "description": "function that evaluates to a(n) signed integer",
+      "descriptionClass": "composite",
+      "functor": "functionTo",
+      "hasEmptyValue": false,
+      "name": "functionTo",
+      "nested": {
+        "elemType": "int-7dfa1bd6ceff"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "int-7dfa1bd6ceff": {
+      "deprecationMessage": null,
+      "description": "signed integer",
+      "descriptionClass": "noun",
+      "functor": "int",
+      "hasEmptyValue": false,
+      "name": "int",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "lazyAttrsOf-60e0d07e71a4": {
+      "deprecationMessage": null,
+      "description": "lazy attribute set of signed integer",
+      "descriptionClass": "composite",
+      "functor": "attrsWith",
+      "hasEmptyValue": true,
+      "name": "lazyAttrsOf",
+      "nested": {
+        "elemType": "int-7dfa1bd6ceff"
+      },
+      "payload": {
+        "lazy": true,
+        "placeholder": "name"
+      },
+      "reachesTypeCycle": false
+    },
+    "listOf-1d58f81c95af": {
+      "deprecationMessage": null,
+      "description": "list of (null or string)",
+      "descriptionClass": "composite",
+      "functor": "listOf",
+      "hasEmptyValue": true,
+      "name": "listOf",
+      "nested": {
+        "elemType": "nullOr-41ff5154e4ff"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "listOf-6064cf5731f7": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "composite",
+      "functor": "listOf",
+      "hasEmptyValue": true,
+      "name": "listOf",
+      "nested": {
+        "elemType": "nullOr-ef16c2d205d9"
+      },
+      "payload": {},
+      "reachesTypeCycle": true
+    },
+    "listOf-c5c41fc6d5dd": {
+      "deprecationMessage": null,
+      "description": "list of signed integer",
+      "descriptionClass": "composite",
+      "functor": "listOf",
+      "hasEmptyValue": true,
+      "name": "listOf",
+      "nested": {
+        "elemType": "int-7dfa1bd6ceff"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "listOf-cf0fe6237188": {
+      "deprecationMessage": null,
+      "description": "list of list of (null or string)",
+      "descriptionClass": "composite",
+      "functor": "listOf",
+      "hasEmptyValue": true,
+      "name": "listOf",
+      "nested": {
+        "elemType": "listOf-1d58f81c95af"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "listOf-f2a43ec0ccbc": {
+      "deprecationMessage": null,
+      "description": "non-empty (list of signed integer)",
+      "descriptionClass": "composite",
+      "functor": "listOf",
+      "hasEmptyValue": false,
+      "name": "listOf",
+      "nested": {
+        "elemType": "int-7dfa1bd6ceff"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "nullOr-41ff5154e4ff": {
+      "deprecationMessage": null,
+      "description": "null or string",
+      "descriptionClass": "conjunction",
+      "functor": "nullOr",
+      "hasEmptyValue": true,
+      "name": "nullOr",
+      "nested": {
+        "elemType": "str-abf70477e054"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "nullOr-423b241336b4": {
+      "deprecationMessage": null,
+      "description": "null or signed integer",
+      "descriptionClass": "conjunction",
+      "functor": "nullOr",
+      "hasEmptyValue": true,
+      "name": "nullOr",
+      "nested": {
+        "elemType": "int-7dfa1bd6ceff"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "nullOr-ef16c2d205d9": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "conjunction",
+      "functor": "nullOr",
+      "hasEmptyValue": true,
+      "name": "nullOr",
+      "nested": {
+        "elemType": "either-c279ba05dbde"
+      },
+      "payload": {},
+      "reachesTypeCycle": true
+    },
+    "str-abf70477e054": {
+      "deprecationMessage": null,
+      "description": "string",
+      "descriptionClass": "noun",
+      "functor": "str",
+      "hasEmptyValue": false,
+      "name": "str",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "unique-8e34c5363b3b": {
+      "deprecationMessage": null,
+      "description": "signed integer",
+      "descriptionClass": "noun",
+      "functor": "unique",
+      "hasEmptyValue": false,
+      "name": "unique",
+      "nested": {
+        "elemType": "int-7dfa1bd6ceff"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    }
+  }
+}

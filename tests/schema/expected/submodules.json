@@ -1,0 +1,772 @@
+{
+  "fingerprintDepth": 3,
+  "freeformType": "attrsOf-544ff5e18d95",
+  "options": [
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "deferred"
+      ],
+      "readOnly": false,
+      "type": "deferredModule-20c458082dc3",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "deferredStatic"
+      ],
+      "readOnly": false,
+      "type": "deferredModule-abede75a754b",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "eitherSub"
+      ],
+      "readOnly": false,
+      "type": "either-37581b1388fd",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "even"
+      ],
+      "readOnly": false,
+      "type": "submodule-108c4f65cc54",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "expr"
+      ],
+      "readOnly": false,
+      "type": "attrTag-2f92be7d7752",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "free"
+      ],
+      "readOnly": false,
+      "type": "submodule-bd518c02cec8",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "freeSub"
+      ],
+      "readOnly": false,
+      "type": "submodule-f7ecca790a91",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "listed"
+      ],
+      "readOnly": false,
+      "type": "listOf-28edf401b49e",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "named"
+      ],
+      "readOnly": false,
+      "type": "attrsOf-2d26e2654810",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "sub"
+      ],
+      "readOnly": false,
+      "type": "submodule-0c2dcc7e0c6d",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "tree"
+      ],
+      "readOnly": false,
+      "type": "submodule-eabaeb62b8b8",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "wrapA"
+      ],
+      "readOnly": false,
+      "type": "submodule-ab37f7544c45",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "wrapB"
+      ],
+      "readOnly": false,
+      "type": "submodule-3f16ff4a2299",
+      "visible": true
+    }
+  ],
+  "schemaVersion": 1,
+  "types": {
+    "attrTag-2f92be7d7752": {
+      "deprecationMessage": null,
+      "description": "attribute-tagged union with choices: add, lit",
+      "descriptionClass": "noun",
+      "functor": "attrTag",
+      "hasEmptyValue": false,
+      "name": "attrTag",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "add"
+          ],
+          "readOnly": false,
+          "type": "listOf-2c7630dd1585",
+          "visible": true
+        },
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "lit"
+          ],
+          "readOnly": false,
+          "type": "int-7dfa1bd6ceff",
+          "visible": true
+        }
+      ],
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "attrsOf-2d26e2654810": {
+      "deprecationMessage": null,
+      "description": "attribute set of (submodule)",
+      "descriptionClass": "composite",
+      "functor": "attrsWith",
+      "hasEmptyValue": true,
+      "name": "attrsOf",
+      "nested": {
+        "elemType": "submodule-5645cacfaf2b"
+      },
+      "payload": {
+        "lazy": false,
+        "placeholder": "name"
+      },
+      "reachesTypeCycle": false
+    },
+    "attrsOf-5137eb0ea7cd": {
+      "deprecationMessage": null,
+      "description": "attribute set of (submodule)",
+      "descriptionClass": "composite",
+      "functor": "attrsWith",
+      "hasEmptyValue": true,
+      "name": "attrsOf",
+      "nested": {
+        "elemType": "submodule-a2328c05cf32"
+      },
+      "payload": {
+        "lazy": false,
+        "placeholder": "name"
+      },
+      "reachesTypeCycle": false
+    },
+    "attrsOf-544ff5e18d95": {
+      "deprecationMessage": null,
+      "description": "attribute set of string",
+      "descriptionClass": "composite",
+      "functor": "attrsWith",
+      "hasEmptyValue": true,
+      "name": "attrsOf",
+      "nested": {
+        "elemType": "str-abf70477e054"
+      },
+      "payload": {
+        "lazy": false,
+        "placeholder": "name"
+      },
+      "reachesTypeCycle": false
+    },
+    "bool-e73c13eed337": {
+      "deprecationMessage": null,
+      "description": "boolean",
+      "descriptionClass": "noun",
+      "functor": "bool",
+      "hasEmptyValue": false,
+      "name": "bool",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "deferredModule-20c458082dc3": {
+      "deprecationMessage": null,
+      "description": "module",
+      "descriptionClass": "noun",
+      "functor": "deferredModuleWith",
+      "hasEmptyValue": false,
+      "name": "deferredModule",
+      "nested": {},
+      "options": [],
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "deferredModule-abede75a754b": {
+      "deprecationMessage": null,
+      "description": "module",
+      "descriptionClass": "noun",
+      "functor": "deferredModuleWith",
+      "hasEmptyValue": false,
+      "name": "deferredModule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "s"
+          ],
+          "readOnly": false,
+          "type": "str-abf70477e054",
+          "visible": true
+        }
+      ],
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "either-37581b1388fd": {
+      "deprecationMessage": null,
+      "description": "string or (submodule)",
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "str-abf70477e054",
+        "right": "submodule-2db11021da1f"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "int-7dfa1bd6ceff": {
+      "deprecationMessage": null,
+      "description": "signed integer",
+      "descriptionClass": "noun",
+      "functor": "int",
+      "hasEmptyValue": false,
+      "name": "int",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "listOf-28edf401b49e": {
+      "deprecationMessage": null,
+      "description": "list of (submodule)",
+      "descriptionClass": "composite",
+      "functor": "listOf",
+      "hasEmptyValue": true,
+      "name": "listOf",
+      "nested": {
+        "elemType": "submodule-f99b72097848"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "listOf-2c7630dd1585": {
+      "deprecationMessage": null,
+      "description": "list of (submodule)",
+      "descriptionClass": "composite",
+      "functor": "listOf",
+      "hasEmptyValue": true,
+      "name": "listOf",
+      "nested": {
+        "elemType": "submodule-b69da39d8693"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "listOf-a5192a525c7f": {
+      "deprecationMessage": null,
+      "description": "list of (submodule)",
+      "descriptionClass": "composite",
+      "functor": "listOf",
+      "hasEmptyValue": true,
+      "name": "listOf",
+      "nested": {
+        "elemType": "submodule-eabaeb62b8b8"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "nullOr-bcc9fb83a5d0": {
+      "deprecationMessage": null,
+      "description": "null or (submodule)",
+      "descriptionClass": "conjunction",
+      "functor": "nullOr",
+      "hasEmptyValue": true,
+      "name": "nullOr",
+      "nested": {
+        "elemType": "submodule-108c4f65cc54"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "str-abf70477e054": {
+      "deprecationMessage": null,
+      "description": "string",
+      "descriptionClass": "noun",
+      "functor": "str",
+      "hasEmptyValue": false,
+      "name": "str",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "submodule-0c2dcc7e0c6d": {
+      "deprecationMessage": null,
+      "description": "submodule",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": true,
+          "internal": false,
+          "path": [
+            "a"
+          ],
+          "readOnly": false,
+          "type": "int-7dfa1bd6ceff",
+          "visible": true
+        },
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "inner"
+          ],
+          "readOnly": false,
+          "type": "submodule-3093cf9aef61",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-108c4f65cc54": {
+      "deprecationMessage": null,
+      "description": "submodule",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "next"
+          ],
+          "readOnly": false,
+          "type": "nullOr-bcc9fb83a5d0",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-28506e903a1c": {
+      "deprecationMessage": null,
+      "description": "submodule",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "x"
+          ],
+          "readOnly": false,
+          "type": "int-7dfa1bd6ceff",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-2db11021da1f": {
+      "deprecationMessage": null,
+      "description": "submodule",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "e"
+          ],
+          "readOnly": false,
+          "type": "int-7dfa1bd6ceff",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-3093cf9aef61": {
+      "deprecationMessage": null,
+      "description": "submodule",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "deep"
+          ],
+          "readOnly": false,
+          "type": "bool-e73c13eed337",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-3f16ff4a2299": {
+      "deprecationMessage": null,
+      "description": "submodule",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "inner"
+          ],
+          "readOnly": false,
+          "type": "submodule-63fc4d712b43",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-5645cacfaf2b": {
+      "deprecationMessage": null,
+      "description": "submodule",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": true,
+          "internal": false,
+          "path": [
+            "n"
+          ],
+          "readOnly": false,
+          "type": "str-abf70477e054",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-63fc4d712b43": {
+      "deprecationMessage": null,
+      "description": "submodule",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "x"
+          ],
+          "readOnly": false,
+          "type": "str-abf70477e054",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-a2328c05cf32": {
+      "deprecationMessage": null,
+      "description": "submodule",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "z"
+          ],
+          "readOnly": false,
+          "type": "int-7dfa1bd6ceff",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-ab37f7544c45": {
+      "deprecationMessage": null,
+      "description": "submodule",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "inner"
+          ],
+          "readOnly": false,
+          "type": "submodule-28506e903a1c",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-b69da39d8693": {
+      "deprecationMessage": null,
+      "description": "submodule",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "operand"
+          ],
+          "readOnly": false,
+          "type": "attrTag-2f92be7d7752",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-bd518c02cec8": {
+      "deprecationMessage": null,
+      "description": "open submodule of attribute set of string",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {
+        "freeformType": "attrsOf-544ff5e18d95"
+      },
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "known"
+          ],
+          "readOnly": false,
+          "type": "int-7dfa1bd6ceff",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-eabaeb62b8b8": {
+      "deprecationMessage": null,
+      "description": "submodule",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": true,
+          "internal": false,
+          "path": [
+            "children"
+          ],
+          "readOnly": false,
+          "type": "listOf-a5192a525c7f",
+          "visible": true
+        },
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "value"
+          ],
+          "readOnly": false,
+          "type": "int-7dfa1bd6ceff",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-f7ecca790a91": {
+      "deprecationMessage": null,
+      "description": "open submodule of attribute set of (submodule)",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {
+        "freeformType": "attrsOf-5137eb0ea7cd"
+      },
+      "options": [],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    },
+    "submodule-f99b72097848": {
+      "deprecationMessage": null,
+      "description": "submodule",
+      "descriptionClass": null,
+      "functor": "submodule",
+      "hasEmptyValue": true,
+      "name": "submodule",
+      "nested": {},
+      "options": [
+        {
+          "hasDefault": false,
+          "internal": false,
+          "path": [
+            "v"
+          ],
+          "readOnly": false,
+          "type": "int-7dfa1bd6ceff",
+          "visible": true
+        }
+      ],
+      "payload": {
+        "class": null,
+        "description": null,
+        "shorthandOnlyDefinesConfig": true
+      },
+      "reachesTypeCycle": false
+    }
+  }
+}

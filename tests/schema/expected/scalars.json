@@ -1,0 +1,1143 @@
+{
+  "fingerprintDepth": 3,
+  "freeformType": null,
+  "options": [
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "addCheck"
+      ],
+      "readOnly": false,
+      "type": "str-abf70477e054",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "anything"
+      ],
+      "readOnly": false,
+      "type": "anything-51d023822aa9",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "attrs"
+      ],
+      "readOnly": false,
+      "type": "attrs-ea23dfb96d24",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "between"
+      ],
+      "readOnly": false,
+      "type": "intBetween-31e19e152bf3",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "bool"
+      ],
+      "readOnly": false,
+      "type": "bool-e73c13eed337",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "boolByOr"
+      ],
+      "readOnly": false,
+      "type": "boolByOr-6912b17b7f44",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "commas"
+      ],
+      "readOnly": false,
+      "type": "separatedString-4a764157ff14",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "custom"
+      ],
+      "readOnly": false,
+      "type": "even-569779791abb",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "enum"
+      ],
+      "readOnly": false,
+      "type": "enum-3e5bf5156a02",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "enumNonJson"
+      ],
+      "readOnly": false,
+      "type": "enum-2707a7f32cb8",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "envVar"
+      ],
+      "readOnly": false,
+      "type": "separatedString-8cb89f735a80",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "externalPath"
+      ],
+      "readOnly": false,
+      "type": "path-77c6472cb2c8",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "fileset"
+      ],
+      "readOnly": false,
+      "type": "fileset-fe3f7c0c0387",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "float"
+      ],
+      "readOnly": false,
+      "type": "float-3054a4d9019b",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "int"
+      ],
+      "readOnly": false,
+      "type": "int-7dfa1bd6ceff",
+      "visible": true
+    },
+    {
+      "hasDefault": true,
+      "internal": true,
+      "path": [
+        "internal"
+      ],
+      "readOnly": false,
+      "type": "int-7dfa1bd6ceff",
+      "visible": false
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "json"
+      ],
+      "readOnly": false,
+      "type": "nullOr-5660c18b8ea9",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "lines"
+      ],
+      "readOnly": false,
+      "type": "separatedString-d6ab1fd71a35",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "luaInline"
+      ],
+      "readOnly": false,
+      "type": "luaInline-31d2e42e6039",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "nested",
+        "deeper",
+        "leaf"
+      ],
+      "readOnly": false,
+      "type": "str-abf70477e054",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "nonEmptyStr"
+      ],
+      "readOnly": false,
+      "type": "nonEmptyStr-515e4d6ae21f",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "numBetween"
+      ],
+      "readOnly": false,
+      "type": "numberBetween-dbbc508b6ca2",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "numNonnegative"
+      ],
+      "readOnly": false,
+      "type": "numberNonnegative-c780529ffff3",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "numPositive"
+      ],
+      "readOnly": false,
+      "type": "numberPositive-ecbe548889cb",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "number"
+      ],
+      "readOnly": false,
+      "type": "either-0489809ac20a",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "optionType"
+      ],
+      "readOnly": false,
+      "type": "optionType-1fd252404891",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "package"
+      ],
+      "readOnly": false,
+      "type": "package-a3a263854630",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "passwdEntry"
+      ],
+      "readOnly": false,
+      "type": "passwdEntry-9d416e9ccf8b",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "path"
+      ],
+      "readOnly": false,
+      "type": "path-38671ed73129",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "pathInStore"
+      ],
+      "readOnly": false,
+      "type": "path-527819e7be48",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "pathWith"
+      ],
+      "readOnly": false,
+      "type": "path-d705289c438f",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "pkgs"
+      ],
+      "readOnly": false,
+      "type": "pkgs-57919104706b",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "port"
+      ],
+      "readOnly": false,
+      "type": "unsignedInt16-f6993a7e290e",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "positive"
+      ],
+      "readOnly": false,
+      "type": "positiveInt-162664bd9947",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "raw"
+      ],
+      "readOnly": false,
+      "type": "raw-eca2dcb9e41d",
+      "visible": true
+    },
+    {
+      "hasDefault": true,
+      "internal": false,
+      "path": [
+        "readOnly"
+      ],
+      "readOnly": true,
+      "type": "int-7dfa1bd6ceff",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "s32"
+      ],
+      "readOnly": false,
+      "type": "signedInt32-d329e5eb614a",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "separatedString"
+      ],
+      "readOnly": false,
+      "type": "separatedString-8cb89f735a80",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "shellPackage"
+      ],
+      "readOnly": false,
+      "type": "package-a3a263854630",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "singleLineStr"
+      ],
+      "readOnly": false,
+      "type": "singleLineStr-bf9157eab114",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "str"
+      ],
+      "readOnly": false,
+      "type": "str-abf70477e054",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "strMatching"
+      ],
+      "readOnly": false,
+      "type": "strMatching-53ca9b905545",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "toml"
+      ],
+      "readOnly": false,
+      "type": "either-6075db9f1501",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "u8"
+      ],
+      "readOnly": false,
+      "type": "unsignedInt8-016e041b42a1",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "unsigned"
+      ],
+      "readOnly": false,
+      "type": "unsignedInt-00a7a01c89b0",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "unspecified"
+      ],
+      "readOnly": false,
+      "type": "unspecified-c69a64b4884b",
+      "visible": true
+    },
+    {
+      "hasDefault": false,
+      "internal": false,
+      "path": [
+        "untyped"
+      ],
+      "readOnly": false,
+      "type": "unspecified-c69a64b4884b",
+      "visible": true
+    },
+    {
+      "hasDefault": true,
+      "internal": false,
+      "path": [
+        "withDefault"
+      ],
+      "readOnly": false,
+      "type": "int-7dfa1bd6ceff",
+      "visible": true
+    }
+  ],
+  "schemaVersion": 1,
+  "types": {
+    "anything-51d023822aa9": {
+      "deprecationMessage": null,
+      "description": "anything",
+      "descriptionClass": "noun",
+      "functor": "anything",
+      "hasEmptyValue": false,
+      "name": "anything",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "attrs-ea23dfb96d24": {
+      "deprecationMessage": null,
+      "description": "attribute set",
+      "descriptionClass": null,
+      "functor": "attrs",
+      "hasEmptyValue": true,
+      "name": "attrs",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "attrsOf-a4aa755a1ef2": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "composite",
+      "functor": "attrsWith",
+      "hasEmptyValue": true,
+      "name": "attrsOf",
+      "nested": {
+        "elemType": "either-6075db9f1501"
+      },
+      "payload": {
+        "lazy": false,
+        "placeholder": "name"
+      },
+      "reachesTypeCycle": true
+    },
+    "attrsOf-c93dd710b8a1": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "composite",
+      "functor": "attrsWith",
+      "hasEmptyValue": true,
+      "name": "attrsOf",
+      "nested": {
+        "elemType": "nullOr-5660c18b8ea9"
+      },
+      "payload": {
+        "lazy": false,
+        "placeholder": "name"
+      },
+      "reachesTypeCycle": true
+    },
+    "bool-e73c13eed337": {
+      "deprecationMessage": null,
+      "description": "boolean",
+      "descriptionClass": "noun",
+      "functor": "bool",
+      "hasEmptyValue": false,
+      "name": "bool",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "boolByOr-6912b17b7f44": {
+      "deprecationMessage": null,
+      "description": "boolean (merged using or)",
+      "descriptionClass": "noun",
+      "functor": "boolByOr",
+      "hasEmptyValue": false,
+      "name": "boolByOr",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "either-0489809ac20a": {
+      "deprecationMessage": null,
+      "description": "signed integer or floating point number",
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "int-7dfa1bd6ceff",
+        "right": "float-3054a4d9019b"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "either-248055a82c23": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "either-56e3d5424d31",
+        "right": "attrsOf-a4aa755a1ef2"
+      },
+      "payload": {},
+      "reachesTypeCycle": true
+    },
+    "either-45aa78a687e6": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "either-cbc6df4500c0",
+        "right": "listOf-95102e56ab81"
+      },
+      "payload": {},
+      "reachesTypeCycle": true
+    },
+    "either-528bde6c4973": {
+      "deprecationMessage": null,
+      "description": "boolean or signed integer or floating point number",
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "either-768925f4a7bc",
+        "right": "float-3054a4d9019b"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "either-56e3d5424d31": {
+      "deprecationMessage": null,
+      "description": "boolean or signed integer or floating point number or string or absolute path",
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "either-6107b351a109",
+        "right": "path-38671ed73129"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "either-6075db9f1501": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "either-248055a82c23",
+        "right": "listOf-8338777b675b"
+      },
+      "payload": {},
+      "reachesTypeCycle": true
+    },
+    "either-6107b351a109": {
+      "deprecationMessage": null,
+      "description": "boolean or signed integer or floating point number or string",
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "either-528bde6c4973",
+        "right": "str-abf70477e054"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "either-768925f4a7bc": {
+      "deprecationMessage": null,
+      "description": "boolean or signed integer",
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "bool-e73c13eed337",
+        "right": "int-7dfa1bd6ceff"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "either-cbc6df4500c0": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "either",
+      "nested": {
+        "left": "either-56e3d5424d31",
+        "right": "attrsOf-c93dd710b8a1"
+      },
+      "payload": {},
+      "reachesTypeCycle": true
+    },
+    "enum-2707a7f32cb8": {
+      "deprecationMessage": null,
+      "description": "one of \"a\", <list>, <set>",
+      "descriptionClass": "conjunction",
+      "functor": "enum",
+      "hasEmptyValue": false,
+      "name": "enum",
+      "nested": {},
+      "payload": {
+        "values": [
+          "a",
+          {
+            "unserialisable": "list"
+          },
+          {
+            "unserialisable": "set"
+          }
+        ]
+      },
+      "reachesTypeCycle": false
+    },
+    "enum-3e5bf5156a02": {
+      "deprecationMessage": null,
+      "description": "one of \"a\", 1, true, <null>",
+      "descriptionClass": "conjunction",
+      "functor": "enum",
+      "hasEmptyValue": false,
+      "name": "enum",
+      "nested": {},
+      "payload": {
+        "values": [
+          "a",
+          1,
+          true,
+          null
+        ]
+      },
+      "reachesTypeCycle": false
+    },
+    "even-569779791abb": {
+      "deprecationMessage": null,
+      "description": "even",
+      "descriptionClass": null,
+      "functor": "even",
+      "hasEmptyValue": false,
+      "name": "even",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "fileset-fe3f7c0c0387": {
+      "deprecationMessage": null,
+      "description": "fileset",
+      "descriptionClass": "noun",
+      "functor": "fileset",
+      "hasEmptyValue": true,
+      "name": "fileset",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "float-3054a4d9019b": {
+      "deprecationMessage": null,
+      "description": "floating point number",
+      "descriptionClass": "noun",
+      "functor": "float",
+      "hasEmptyValue": false,
+      "name": "float",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "int-7dfa1bd6ceff": {
+      "deprecationMessage": null,
+      "description": "signed integer",
+      "descriptionClass": "noun",
+      "functor": "int",
+      "hasEmptyValue": false,
+      "name": "int",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "intBetween-31e19e152bf3": {
+      "deprecationMessage": null,
+      "description": "integer between 1 and 10 (both inclusive)",
+      "descriptionClass": "noun",
+      "functor": "int",
+      "hasEmptyValue": false,
+      "name": "intBetween",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "listOf-8338777b675b": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "composite",
+      "functor": "listOf",
+      "hasEmptyValue": true,
+      "name": "listOf",
+      "nested": {
+        "elemType": "either-6075db9f1501"
+      },
+      "payload": {},
+      "reachesTypeCycle": true
+    },
+    "listOf-95102e56ab81": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "composite",
+      "functor": "listOf",
+      "hasEmptyValue": true,
+      "name": "listOf",
+      "nested": {
+        "elemType": "nullOr-5660c18b8ea9"
+      },
+      "payload": {},
+      "reachesTypeCycle": true
+    },
+    "luaInline-31d2e42e6039": {
+      "deprecationMessage": null,
+      "description": "inline lua",
+      "descriptionClass": "noun",
+      "functor": "luaInline",
+      "hasEmptyValue": false,
+      "name": "luaInline",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "nonEmptyStr-515e4d6ae21f": {
+      "deprecationMessage": null,
+      "description": "non-empty string",
+      "descriptionClass": "noun",
+      "functor": "nonEmptyStr",
+      "hasEmptyValue": false,
+      "name": "nonEmptyStr",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "nullOr-5660c18b8ea9": {
+      "deprecationMessage": null,
+      "description": null,
+      "descriptionClass": "conjunction",
+      "functor": "nullOr",
+      "hasEmptyValue": true,
+      "name": "nullOr",
+      "nested": {
+        "elemType": "either-45aa78a687e6"
+      },
+      "payload": {},
+      "reachesTypeCycle": true
+    },
+    "numberBetween-dbbc508b6ca2": {
+      "deprecationMessage": null,
+      "description": "integer or floating point number between 0 and 1.5 (both inclusive)",
+      "descriptionClass": "conjunction",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "numberBetween",
+      "nested": {
+        "left": "int-7dfa1bd6ceff",
+        "right": "float-3054a4d9019b"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "numberNonnegative-c780529ffff3": {
+      "deprecationMessage": null,
+      "description": "nonnegative integer or floating point number, meaning >=0",
+      "descriptionClass": "nonRestrictiveClause",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "numberNonnegative",
+      "nested": {
+        "left": "int-7dfa1bd6ceff",
+        "right": "float-3054a4d9019b"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "numberPositive-ecbe548889cb": {
+      "deprecationMessage": null,
+      "description": "positive integer or floating point number, meaning >0",
+      "descriptionClass": "nonRestrictiveClause",
+      "functor": "either",
+      "hasEmptyValue": false,
+      "name": "numberPositive",
+      "nested": {
+        "left": "int-7dfa1bd6ceff",
+        "right": "float-3054a4d9019b"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "optionType-1fd252404891": {
+      "deprecationMessage": null,
+      "description": "optionType",
+      "descriptionClass": "noun",
+      "functor": "optionType",
+      "hasEmptyValue": false,
+      "name": "optionType",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "package-a3a263854630": {
+      "deprecationMessage": null,
+      "description": "package",
+      "descriptionClass": "noun",
+      "functor": "package",
+      "hasEmptyValue": false,
+      "name": "package",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "passwdEntry-9d416e9ccf8b": {
+      "deprecationMessage": null,
+      "description": "string, not containing newlines or colons",
+      "descriptionClass": "nonRestrictiveClause",
+      "functor": "str",
+      "hasEmptyValue": false,
+      "name": "passwdEntry str",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "path-38671ed73129": {
+      "deprecationMessage": null,
+      "description": "absolute path",
+      "descriptionClass": "noun",
+      "functor": "path",
+      "hasEmptyValue": false,
+      "name": "path",
+      "nested": {},
+      "payload": {
+        "absolute": true,
+        "inStore": null
+      },
+      "reachesTypeCycle": false
+    },
+    "path-527819e7be48": {
+      "deprecationMessage": null,
+      "description": "path in the Nix store",
+      "descriptionClass": "noun",
+      "functor": "path",
+      "hasEmptyValue": false,
+      "name": "path",
+      "nested": {},
+      "payload": {
+        "absolute": null,
+        "inStore": true
+      },
+      "reachesTypeCycle": false
+    },
+    "path-77c6472cb2c8": {
+      "deprecationMessage": null,
+      "description": "absolute path not in the Nix store",
+      "descriptionClass": "noun",
+      "functor": "path",
+      "hasEmptyValue": false,
+      "name": "path",
+      "nested": {},
+      "payload": {
+        "absolute": true,
+        "inStore": false
+      },
+      "reachesTypeCycle": false
+    },
+    "path-d705289c438f": {
+      "deprecationMessage": null,
+      "description": "relative path",
+      "descriptionClass": "noun",
+      "functor": "path",
+      "hasEmptyValue": false,
+      "name": "path",
+      "nested": {},
+      "payload": {
+        "absolute": false,
+        "inStore": null
+      },
+      "reachesTypeCycle": false
+    },
+    "pkgs-57919104706b": {
+      "deprecationMessage": null,
+      "description": "Nixpkgs package set",
+      "descriptionClass": "noun",
+      "functor": "unique",
+      "hasEmptyValue": true,
+      "name": "pkgs",
+      "nested": {
+        "elemType": "attrs-ea23dfb96d24"
+      },
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "positiveInt-162664bd9947": {
+      "deprecationMessage": null,
+      "description": "positive integer, meaning >0",
+      "descriptionClass": "nonRestrictiveClause",
+      "functor": "int",
+      "hasEmptyValue": false,
+      "name": "positiveInt",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "raw-eca2dcb9e41d": {
+      "deprecationMessage": null,
+      "description": "raw value",
+      "descriptionClass": "noun",
+      "functor": "raw",
+      "hasEmptyValue": false,
+      "name": "raw",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "separatedString-4a764157ff14": {
+      "deprecationMessage": null,
+      "description": "strings concatenated with \",\"",
+      "descriptionClass": "noun",
+      "functor": "separatedString",
+      "hasEmptyValue": false,
+      "name": "separatedString",
+      "nested": {},
+      "payload": {
+        "sep": ","
+      },
+      "reachesTypeCycle": false
+    },
+    "separatedString-8cb89f735a80": {
+      "deprecationMessage": null,
+      "description": "strings concatenated with \":\"",
+      "descriptionClass": "noun",
+      "functor": "separatedString",
+      "hasEmptyValue": false,
+      "name": "separatedString",
+      "nested": {},
+      "payload": {
+        "sep": ":"
+      },
+      "reachesTypeCycle": false
+    },
+    "separatedString-d6ab1fd71a35": {
+      "deprecationMessage": null,
+      "description": "strings concatenated with \"\\n\"",
+      "descriptionClass": "noun",
+      "functor": "separatedString",
+      "hasEmptyValue": false,
+      "name": "separatedString",
+      "nested": {},
+      "payload": {
+        "sep": "\n"
+      },
+      "reachesTypeCycle": false
+    },
+    "signedInt32-d329e5eb614a": {
+      "deprecationMessage": null,
+      "description": "32 bit signed integer; between -2147483648 and 2147483647 (both inclusive)",
+      "descriptionClass": "noun",
+      "functor": "int",
+      "hasEmptyValue": false,
+      "name": "signedInt32",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "singleLineStr-bf9157eab114": {
+      "deprecationMessage": null,
+      "description": "(optionally newline-terminated) single-line string",
+      "descriptionClass": "noun",
+      "functor": "singleLineStr",
+      "hasEmptyValue": false,
+      "name": "singleLineStr",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "str-abf70477e054": {
+      "deprecationMessage": null,
+      "description": "string",
+      "descriptionClass": "noun",
+      "functor": "str",
+      "hasEmptyValue": false,
+      "name": "str",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "strMatching-53ca9b905545": {
+      "deprecationMessage": null,
+      "description": "string matching the pattern [a-z]+",
+      "descriptionClass": "noun",
+      "functor": "strMatching",
+      "hasEmptyValue": false,
+      "name": "strMatching \"[a-z]+\"",
+      "nested": {},
+      "payload": {
+        "pattern": "[a-z]+"
+      },
+      "reachesTypeCycle": false
+    },
+    "unsignedInt-00a7a01c89b0": {
+      "deprecationMessage": null,
+      "description": "unsigned integer, meaning >=0",
+      "descriptionClass": "nonRestrictiveClause",
+      "functor": "int",
+      "hasEmptyValue": false,
+      "name": "unsignedInt",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "unsignedInt16-f6993a7e290e": {
+      "deprecationMessage": null,
+      "description": "16 bit unsigned integer; between 0 and 65535 (both inclusive)",
+      "descriptionClass": "noun",
+      "functor": "int",
+      "hasEmptyValue": false,
+      "name": "unsignedInt16",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "unsignedInt8-016e041b42a1": {
+      "deprecationMessage": null,
+      "description": "8 bit unsigned integer; between 0 and 255 (both inclusive)",
+      "descriptionClass": "noun",
+      "functor": "int",
+      "hasEmptyValue": false,
+      "name": "unsignedInt8",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    },
+    "unspecified-c69a64b4884b": {
+      "deprecationMessage": null,
+      "description": "unspecified value",
+      "descriptionClass": "noun",
+      "functor": "unspecified",
+      "hasEmptyValue": false,
+      "name": "unspecified",
+      "nested": {},
+      "payload": {},
+      "reachesTypeCycle": false
+    }
+  }
+}

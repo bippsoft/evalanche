@@ -109,6 +109,34 @@
         {
           inherit evalanche;
 
+          # Export every schema fixture under both evaluators and compare it
+          # with the expected file. `--store dummy://` keeps evaluation away
+          # from the store database and the daemon.
+          schema =
+            pkgs.runCommand "evalanche-schema"
+              {
+                nativeBuildInputs = [ pkgs.jq ];
+                src = lib.fileset.toSource {
+                  root = ./.;
+                  fileset = lib.fileset.unions [
+                    ./nix
+                    ./tests/schema
+                  ];
+                };
+              }
+              ''
+                for fixture in $src/tests/schema/fixtures/*.nix; do
+                  name=$(basename $fixture .nix)
+                  expr="import $src/nix/schema.nix { target = { modules = [ $fixture ]; lib = import ${nixpkgs}/lib; }; }"
+                  for bin in ${(evaluators pkgs).cppnix}/bin ${(evaluators pkgs).lix}/bin; do
+                    echo "$name: $bin"
+                    $bin/nix-instantiate --store dummy:// --eval --strict --json -E "$expr" | jq -S . > got.json
+                    diff -u $src/tests/schema/expected/$name.json got.json
+                  done
+                done
+                touch $out
+              '';
+
           version = pkgs.runCommand "evalanche-version" { } ''
             ${lib.getExe evalanche} > $out
             grep -Fx 'evalanche ${project.version}' $out
