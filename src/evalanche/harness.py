@@ -42,7 +42,7 @@ class Expression:
 
 @dataclass(frozen=True)
 class File:
-    """A Nix file, passed as a path argument."""
+    """A Nix file, passed as a path argument after `os.path.realpath`."""
 
     path: Path
 
@@ -59,8 +59,8 @@ class ReadOnlyStore:
 class LocalStore:
     """A private local store under `root`, opened read-write.
 
-    `root` must be an absolute path with no symlink in it. On macOS that
-    rules out `/var` and `/tmp`, so resolve the path first.
+    The store root must contain no symlink, so the harness passes it after
+    `os.path.realpath`.
     """
 
     root: Path
@@ -190,6 +190,17 @@ class RawResult:
         return self.error.trace if self.error else ()
 
 
+def real_path(path: Path | str) -> str:
+    """`path` with every symlink resolved.
+
+    CppNix 2.36.0 reports every position in a file reached through a
+    symlink as line 1, with the byte offset plus 1 as the column. Lix 2.95.4
+    reports the true line either way. macOS puts `/var` and `/tmp` behind
+    symlinks.
+    """
+    return os.path.realpath(path)
+
+
 def build_argv(evaluation: Evaluation) -> list[str]:
     argv = [
         *evaluation.limits.wrapper,
@@ -204,14 +215,14 @@ def build_argv(evaluation: Evaluation) -> list[str]:
         case ReadOnlyStore():
             pass
         case LocalStore(root):
-            argv += ["--read-write-mode", "--store", f"local?root={root}"]
+            argv += ["--read-write-mode", "--store", f"local?root={real_path(root)}"]
     for name, value in evaluation.options:
         argv += ["--option", name, value]
     match evaluation.source:
         case Expression(text):
             argv += ["-E", text]
         case File(path):
-            argv += ["--", str(path)]
+            argv += ["--", real_path(path)]
     return argv
 
 
@@ -334,7 +345,7 @@ def evaluate(evaluation: Evaluation) -> RawResult:
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         env=build_env(evaluation),
-        cwd=evaluation.cwd,
+        cwd=None if evaluation.cwd is None else real_path(evaluation.cwd),
         start_new_session=True,
     )
     pgid = proc.pid

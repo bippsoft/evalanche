@@ -107,6 +107,29 @@ class HarnessCases:
         self.assertEqual(result.exit_code, 0, result.stderr)
         self.assertEqual(result.stdout.strip(), "42")
 
+    def test_symlinked_file_reports_true_line(self):
+        real = self.tmp / "real"
+        real.mkdir()
+        (real / "target.nix").write_text('let\n  a = 1;\n  b = 2;\nin\nthrow "five"\n')
+        link = self.tmp / "link"
+        link.symlink_to(real)
+        result = evaluate(Evaluation(self.evaluator, File(link / "target.nix")))
+        self.assertEqual(result.raw_msg, "five")
+        self.assertEqual(result.argv[-1], str(real / "target.nix"))
+        self.assertEqual([(f.line, f.column) for f in result.trace], [(5, 1)])
+
+    def test_symlinked_cwd_is_resolved(self):
+        real = self.tmp / "real"
+        real.mkdir()
+        (real / "target.nix").write_text('let\n  a = 1;\nin\nthrow "four"\n')
+        link = self.tmp / "link"
+        link.symlink_to(real)
+        result = evaluate(
+            Evaluation(self.evaluator, Expression("import ./target.nix"), cwd=link)
+        )
+        self.assertEqual(result.raw_msg, "four")
+        self.assertIn((4, 1), [(f.line, f.column) for f in result.trace])
+
     def test_throw(self):
         result = self.run_expr('let f = x: throw "planted"; in f 1')
         self.assertError(result, "planted")
