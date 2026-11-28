@@ -25,9 +25,12 @@
         lix = pkgs.lixPackageSets.latest.lix;
       };
 
+      # `EVALANCHE_PINNED_LIB` is the `lib` that targets use when they do not
+      # bring their own.
       evaluatorEnv = pkgs: {
         EVALANCHE_CPPNIX_BIN = "${(evaluators pkgs).cppnix}/bin";
         EVALANCHE_LIX_BIN = "${(evaluators pkgs).lix}/bin";
+        EVALANCHE_PINNED_LIB = "${nixpkgs}/lib";
       };
 
       dependencies = ps: [ ps.hypothesis ];
@@ -92,7 +95,12 @@
         in
         {
           default = pkgs.mkShell {
-            packages = [ (pkgs.python3.withPackages (_: [ editable ])) ];
+            packages = [
+              (pkgs.python3.withPackages (ps: [
+                editable
+                ps.pytest
+              ]))
+            ];
             env = evaluatorEnv pkgs;
             shellHook = ''
               export EVALANCHE_SRC="$PWD/src"
@@ -110,11 +118,40 @@
           inherit evalanche;
 
           version = pkgs.runCommand "evalanche-version" { } ''
-            ${lib.getExe evalanche} > $out
+            ${lib.getExe evalanche} --version > $out
             grep -Fx 'evalanche ${project.version}' $out
             grep -Fx 'cppnix: nix (Nix) ${(evaluators pkgs).cppnix.version}' $out
             grep -Fx 'lix: nix (Lix, like Nix) ${(evaluators pkgs).lix.version}' $out
           '';
+
+          # The CLI tests run both evaluators against the fixtures. Loading a
+          # flake copies it into a store, so they get a store of their own
+          # under the build directory.
+          cli =
+            pkgs.runCommand "evalanche-cli"
+              {
+                nativeBuildInputs = [
+                  evalanche
+                  (pkgs.python3.withPackages (ps: [ ps.pytest ]))
+                ];
+                src = lib.fileset.toSource {
+                  root = ./.;
+                  fileset = ./tests;
+                };
+                env = evaluatorEnv pkgs;
+              }
+              ''
+                cp -r $src/tests tests
+                chmod -R u+w tests
+                export HOME=$TMPDIR/home
+                export NIX_STORE_DIR=$TMPDIR/store
+                export NIX_STATE_DIR=$TMPDIR/state
+                export NIX_LOG_DIR=$TMPDIR/log
+                export NIX_CONF_DIR=$TMPDIR/conf
+                mkdir -p $HOME $NIX_CONF_DIR
+                python3 -m pytest -p no:cacheprovider tests
+                touch $out
+              '';
         }
       );
 

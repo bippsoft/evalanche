@@ -10,8 +10,11 @@ from pathlib import Path
 class Evaluator:
     name: str
     env_var: str
+    override: Path | None = None
 
     def bin_dir(self) -> Path:
+        if self.override is not None:
+            return self.override
         value = os.environ.get(self.env_var)
         if not value:
             raise RuntimeError(
@@ -33,3 +36,14 @@ class Evaluator:
 CPPNIX = Evaluator("cppnix", "EVALANCHE_CPPNIX_BIN")
 LIX = Evaluator("lix", "EVALANCHE_LIX_BIN")
 EVALUATORS = (CPPNIX, LIX)
+
+
+def pinned_lib() -> Path:
+    """The `lib` directory of the pinned nixpkgs."""
+    value = os.environ.get("EVALANCHE_PINNED_LIB")
+    if not value:
+        raise RuntimeError(
+            "EVALANCHE_PINNED_LIB is not set. Run evalanche through `nix run` "
+            "or inside `nix develop`."
+        )
+    return Path(value)
