@@ -4,11 +4,13 @@ evalanche is a differential fuzzer for Nix evaluators. It generates Nix
 expressions, evaluates each one with CppNix and with Lix, and reports where the
 two disagree.
 
-The project is at an early stage. The program reads targets, lists them and
-runs the baseline evaluation of a target under both evaluators. Fuzzing,
-`replay` and `schema` are not implemented yet and exit with code `2`.
+The project is at an early stage. The program reads targets, lists them,
+prints their option schema and runs the baseline evaluation of a target under
+both evaluators. Fuzzing and `replay` are not implemented yet and exit with
+code `2`.
 
 The terms used across the project are defined in the [glossary](docs/glossary.md).
+The JSON that describes a target's options is documented in [docs/schema.md](docs/schema.md).
 
 ## Running
 
@@ -44,6 +46,9 @@ evalanche fuzz a.nix b.nix            # module paths, with the pinned lib
 `evalanche list` prints the target names of the flake in the current
 directory, or of `FLAKEREF` or `-f FILE`. With `--json` it prints an array of
 `{ name, kind, lib }`.
+
+`evalanche schema TARGET` prints the option tree of a target as JSON. It takes
+the same target forms and `--fingerprint-depth N`, which defaults to 3.
 
 The exit code is `0` when no failure was found, `1` when at least one failure
 was found, and `2` for a usage error or a target error. A target whose

@@ -4,6 +4,7 @@ Run inside `nix develop` with `python3 -m unittest discover -s tests`, or
 through `nix flake check`. Every test runs once per evaluator.
 """
 
+import json
 import os
 import platform
 import re
@@ -98,6 +99,17 @@ class HarnessCases:
         self.assertEqual(result.messages, ())
         self.assertGreater(result.peak_rss, MiB)
         self.assertGreater(result.elapsed, 0)
+
+    def test_json_output(self):
+        result = self.run_expr('{ b = [ 1 "x" ]; a = null; }', json=True)
+        self.assertEqual(result.exit_code, 0, result.stderr)
+        self.assertIn("--json", result.argv)
+        self.assertEqual(json.loads(result.stdout), {"a": None, "b": [1, "x"]})
+
+    def test_no_timeout(self):
+        result = self.run_expr("1 + 1", limits=Limits(timeout=None))
+        self.assertEqual(result.exit_code, 0, result.stderr)
+        self.assertFalse(result.timed_out)
 
     def test_file_source(self):
         path = self.tmp / "target.nix"

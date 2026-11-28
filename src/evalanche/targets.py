@@ -210,6 +210,14 @@ def evaluation_expression(target: Target, generated: str = "[ ]") -> str:
     return f"{loader()}.evaluate {target.expression} {generated}"
 
 
+def schema_expression(target: Target, fingerprint_depth: int) -> str:
+    """The option schema of `target`, exported by `schema.nix`."""
+    return (
+        f"{loader()}.schema {target.expression} "
+        f"{{ fingerprintDepth = {fingerprint_depth}; }}"
+    )
+
+
 @dataclass(frozen=True)
 class Baseline:
     results: tuple[oneshot.EvalResult, ...]

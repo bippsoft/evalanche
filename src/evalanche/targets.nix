@@ -207,4 +207,23 @@ rec {
       );
     in
     builtins.removeAttrs result.config [ "_module" ];
+
+  # The option schema of a target. `args` holds the optional arguments of
+  # `schema.nix`, such as `fingerprintDepth`.
+  schema =
+    target: args:
+    import ./schema.nix (
+      {
+        target = {
+          inherit (target)
+            kind
+            modules
+            lib
+            specialArgs
+            class
+            ;
+        };
+      }
+      // args
+    );
 }

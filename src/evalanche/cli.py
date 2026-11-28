@@ -7,19 +7,23 @@ signature was found, and `2` for a usage error or a target error.
 import argparse
 import dataclasses
 import json
+import os
 import re
 import subprocess
 import sys
 from pathlib import Path
 
-from evalanche import __version__, targets
-from evalanche.evaluators import EVALUATORS, Evaluator
+from evalanche import __version__, harness, targets
+from evalanche.evaluators import CPPNIX, EVALUATORS, Evaluator
 
 EXIT_OK = 0
 EXIT_FAILURES = 1
 EXIT_ERROR = 2
 
 PROPERTIES = ("valid-input", "merge", "differential")
+
+DEFAULT_FINGERPRINT_DEPTH = 3
+SCHEMA_OUTPUT_LIMIT = 2**30
 
 
 def property_name(value: str) -> str:
@@ -93,6 +97,16 @@ def parser() -> argparse.ArgumentParser:
         help="check only this property, repeatable",
     )
 
+    schema_flags = argparse.ArgumentParser(add_help=False)
+    schema_flags.add_argument(
+        "--fingerprint-depth",
+        type=positive_int,
+        default=DEFAULT_FINGERPRINT_DEPTH,
+        metavar="N",
+        help="levels the schema exporter looks down to find a repeated type, "
+        f"{DEFAULT_FINGERPRINT_DEPTH} by default",
+    )
+
     target_args = argparse.ArgumentParser(add_help=False)
     target_args.add_argument(
         "target",
@@ -107,7 +121,7 @@ def parser() -> argparse.ArgumentParser:
     commands = top.add_subparsers(dest="command", metavar="COMMAND")
     commands.add_parser(
         "fuzz",
-        parents=[target_args, evaluator_flags, run_flags, json_flag],
+        parents=[target_args, evaluator_flags, run_flags, schema_flags, json_flag],
         help="fuzz one target",
     )
     commands.add_parser(
@@ -126,7 +140,7 @@ def parser() -> argparse.ArgumentParser:
     )
     commands.add_parser(
         "schema",
-        parents=[target_args, evaluator_flags],
+        parents=[target_args, evaluator_flags, schema_flags],
         help="print the option tree of a target as JSON",
     )
     return top
@@ -204,10 +218,74 @@ def run_fuzz(args: argparse.Namespace) -> int:
     return not_implemented("`fuzz` stops after the baseline evaluation")
 
 
+def evaluator(args: argparse.Namespace, name: str) -> Evaluator:
+    return next(e for e in evaluators(args) if e.name == name)
+
+
 def run_schema(args: argparse.Namespace) -> int:
+    """Export the option tree of a target under CppNix and print it."""
     target = targets.from_arguments(args.target, args.file)
-    targets.load(evaluators(args)[0], target)
-    return not_implemented("`schema`")
+    cppnix = evaluator(args, CPPNIX.name)
+    targets.load(cppnix, target)
+    options = (
+        (("extra-experimental-features", "nix-command flakes"),) if target.flakes else ()
+    )
+    # The export reads the target through the same store and configuration
+    # as loading it, so it gets the caller's Nix variables. A large target
+    # takes minutes and hundreds of megabytes to export, so the export runs
+    # without a timeout or a heap cap.
+    env = {
+        name: value
+        for name, value in os.environ.items()
+        if name.startswith("NIX_") and name != "NIX_PATH"
+    }
+    result = harness.evaluate(
+        harness.Evaluation(
+            cppnix,
+            harness.Expression(targets.schema_expression(target, args.fingerprint_depth)),
+            limits=harness.Limits(timeout=None, heap=None),
+            options=options,
+            env=env,
+            json=True,
+            output_limit=SCHEMA_OUTPUT_LIMIT,
+        )
+    )
+    if result.exit_code != 0:
+        raise targets.TargetError(
+            f"schema export of `{target.name}` failed\n{export_error(result)}"
+        )
+    if result.stdout_truncated:
+        raise RuntimeError(
+            f"the schema of `{target.name}` is larger than {SCHEMA_OUTPUT_LIMIT} bytes"
+        )
+    sys.stdout.write(result.stdout)
+    return EXIT_OK
+
+
+ANSI = re.compile(r"\x1b\[[0-9;]*m")
+
+
+def export_error(result: harness.RawResult) -> str:
+    """The error of a failed export with the position closest to it."""
+    if result.signal is not None:
+        return f"{result.evaluator}: killed by signal {result.signal}"
+    error = result.error
+    if error is None or error.raw_msg is None:
+        return f"{result.evaluator}: exit {result.exit_code}\n{result.stderr.strip()}"
+    message = ANSI.sub("", error.raw_msg)
+    if message.startswith(targets.ERROR_MARKER):
+        message = message[len(targets.ERROR_MARKER) :]
+    lines = [f"{result.evaluator}: {message}"]
+    # The trace runs from the innermost frame outwards. CppNix 2.36.0 puts
+    # the line and column into `file` as well.
+    frame = next((frame for frame in error.trace if frame.file is not None), None)
+    if frame is not None:
+        position = frame.file
+        suffix = f":{frame.line}:{frame.column}"
+        if frame.line is not None and not position.endswith(suffix):
+            position += suffix
+        lines.append(f"  at {position}")
+    return "\n".join(lines)
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -73,14 +73,15 @@ Store = ReadOnlyStore | LocalStore
 class Limits:
     """Resource limits for one evaluation.
 
-    `heap` is the value of `GC_MAXIMUM_HEAP_SIZE`, or `None` for no cap. It
-    bounds only the Boehm heap. `wrapper` is an argv prefix that runs the
-    evaluator under a further limit, such as `address_space_wrapper` or
-    `cgroup_wrapper` on Linux. The wrapper must exec the evaluator in place so
-    that the process it starts stays the group leader.
+    `timeout` is in seconds, or `None` for no timeout. `heap` is the value of
+    `GC_MAXIMUM_HEAP_SIZE`, or `None` for no cap. It bounds only the Boehm
+    heap. `wrapper` is an argv prefix that runs the evaluator under a further
+    limit, such as `address_space_wrapper` or `cgroup_wrapper` on Linux. The
+    wrapper must exec the evaluator in place so that the process it starts
+    stays the group leader.
     """
 
-    timeout: float = DEFAULT_TIMEOUT
+    timeout: float | None = DEFAULT_TIMEOUT
     heap: str | None = DEFAULT_HEAP
     wrapper: tuple[str, ...] = ()
 
@@ -113,7 +114,10 @@ def cgroup_wrapper(memory_max: str) -> tuple[str, ...]:
 
 @dataclass(frozen=True)
 class Evaluation:
-    """One evaluation of `source` under `evaluator`."""
+    """One evaluation of `source` under `evaluator`.
+
+    With `json` the evaluator prints the value with `--json`.
+    """
 
     evaluator: Evaluator
     source: Source
@@ -123,6 +127,7 @@ class Evaluation:
     env: Mapping[str, str] = field(default_factory=dict)
     cwd: Path | None = None
     output_limit: int = DEFAULT_OUTPUT_LIMIT
+    json: bool = False
 
 
 @dataclass(frozen=True)
@@ -211,6 +216,8 @@ def build_argv(evaluation: Evaluation) -> list[str]:
         "internal-json",
         "--show-trace",
     ]
+    if evaluation.json:
+        argv.append("--json")
     match evaluation.store:
         case ReadOnlyStore():
             pass
@@ -368,9 +375,11 @@ def evaluate(evaluation: Evaluation) -> RawResult:
                 timed_out.set()
             _kill_group(pgid)
 
-    timer = threading.Timer(evaluation.limits.timeout, on_timeout)
-    timer.daemon = True
-    timer.start()
+    timer = None
+    if evaluation.limits.timeout is not None:
+        timer = threading.Timer(evaluation.limits.timeout, on_timeout)
+        timer.daemon = True
+        timer.start()
     try:
         # Wait without reaping, then reap under the lock.
         os.waitid(os.P_PID, proc.pid, os.WEXITED | os.WNOWAIT)
@@ -378,7 +387,8 @@ def evaluate(evaluation: Evaluation) -> RawResult:
             _, status, rusage = os.wait4(proc.pid, 0)
             leader_alive = False
     finally:
-        timer.cancel()
+        if timer is not None:
+            timer.cancel()
     elapsed = time.monotonic() - start
     proc.returncode = os.waitstatus_to_exitcode(status)
     # A leader already inside exit when SIGKILL arrives keeps its own status,

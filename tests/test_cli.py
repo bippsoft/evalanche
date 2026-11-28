@@ -16,6 +16,7 @@ TARGET_FILE = FIXTURES / "targets.nix"
 BAD_TARGET_FILE = FIXTURES / "bad-targets.nix"
 FLAKE = FIXTURES / "flake"
 FLAKE_NIXPKGS = FIXTURES / "flake-nixpkgs"
+SCHEMA = FIXTURES.parent / "schema"
 
 NOT_IMPLEMENTED = "evalanche: not implemented: `fuzz` stops after the baseline"
 
@@ -292,7 +293,65 @@ def test_unimplemented_commands(command):
     assert f"not implemented: `{command}`" in result.stderr
 
 
-def test_schema_is_not_implemented():
-    result = evalanche("schema", "modules/port.nix")
+# Schema export.
+
+
+@pytest.mark.parametrize("name", ["scalars", "constructors", "submodules"])
+def test_schema_matches_expected(name):
+    result = evalanche("schema", f"fixtures/{name}.nix", cwd=SCHEMA)
+    assert result.returncode == 0, result.stderr
+    expected = json.loads((SCHEMA / "expected" / f"{name}.json").read_text())
+    assert json.loads(result.stdout) == expected
+
+
+def test_schema_fingerprint_depth():
+    result = evalanche("schema", "--fingerprint-depth", "4", "modules/port.nix")
+    assert result.returncode == 0, result.stderr
+    assert json.loads(result.stdout)["fingerprintDepth"] == 4
+
+
+def test_schema_fingerprint_depth_must_be_positive():
+    result = evalanche("schema", "--fingerprint-depth", "0", "modules/port.nix")
     assert result.returncode == 2
-    assert "not implemented: `schema`" in result.stderr
+    assert "expected a positive integer" in result.stderr
+
+
+def test_schema_file_target():
+    result = evalanche("schema", "-f", str(TARGET_FILE), "service")
+    assert result.returncode == 0, result.stderr
+    schema = json.loads(result.stdout)
+    assert [option["path"] for option in schema["options"]] == [["name"], ["port"]]
+
+
+def test_schema_file_target_with_special_args():
+    result = evalanche("schema", "-f", str(TARGET_FILE), "greeting")
+    assert result.returncode == 0, result.stderr
+
+
+def test_schema_flake_target():
+    result = evalanche("schema", "./flake#service")
+    assert result.returncode == 0, result.stderr
+    schema = json.loads(result.stdout)
+    assert [option["path"] for option in schema["options"]] == [["port"]]
+
+
+def test_schema_does_not_evaluate_config():
+    result = evalanche("schema", "modules/broken.nix")
+    assert result.returncode == 0, result.stderr
+
+
+def test_schema_export_failure_is_a_target_error():
+    result = evalanche("schema", "modules/broken-type.nix")
+    assert result.returncode == 2
+    assert result.stdout == ""
+    assert "target error: schema export of `modules/broken-type.nix` failed" in (
+        result.stderr
+    )
+    assert "cppnix: broken functor" in result.stderr
+    assert "broken-type.nix:8:17" in result.stderr
+
+
+def test_schema_bad_target_is_a_target_error():
+    result = evalanche("schema", "-f", str(BAD_TARGET_FILE), "prefixed")
+    assert result.returncode == 2
+    assert "target `prefixed`: unknown attribute `prefix`" in result.stderr
