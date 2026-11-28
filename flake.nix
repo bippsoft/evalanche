@@ -149,7 +149,30 @@
                 export NIX_LOG_DIR=$TMPDIR/log
                 export NIX_CONF_DIR=$TMPDIR/conf
                 mkdir -p $HOME $NIX_CONF_DIR
-                python3 -m pytest -p no:cacheprovider tests
+                python3 -m pytest -p no:cacheprovider tests/test_cli.py
+                touch $out
+              '';
+
+          # The harness tests run both evaluators. They read the host store
+          # and need only a state directory of their own.
+          harness =
+            pkgs.runCommand "evalanche-harness"
+              {
+                nativeBuildInputs = [
+                  (pkgs.python3.withPackages (ps: [
+                    (ps.toPythonModule evalanche)
+                    ps.pytest
+                  ]))
+                ];
+                src = lib.fileset.toSource {
+                  root = ./.;
+                  fileset = ./tests/test_harness.py;
+                };
+                env = evaluatorEnv pkgs;
+              }
+              ''
+                export NIX_STATE_DIR=$TMPDIR/state
+                python3 -m pytest -p no:cacheprovider $src/tests/test_harness.py
                 touch $out
               '';
         }

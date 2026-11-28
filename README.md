@@ -56,6 +56,10 @@ nix flake check
 nix develop -c pytest tests
 ```
 
+`src/evalanche/harness.py` runs each evaluation as its own
+`nix-instantiate --eval --strict` process with a heap cap and a timeout.
+`tests/test_harness.py` runs its cases under both pinned evaluators.
+
 The evaluator `bin` directories are passed in `EVALANCHE_CPPNIX_BIN` and
 `EVALANCHE_LIX_BIN`.
 
